@@ -37,7 +37,7 @@ export default function Navbar() {
           style={{ borderBottom: "1px solid gray" }}
         >
           <div className="logo flex gap-4 items-center">
-            <Link to="/">
+            <Link to="/home">
               <div className="text-4xl max-sm:text-2xl whitespace-nowrap font-bold flex items-center gap-2">
                 <span>
                   <h1>TODO APP</h1>
@@ -99,7 +99,7 @@ export default function Navbar() {
 
           {!userAuth.token && (
             <nav className="guest-navigation">
-              <Link to="/login">
+              <Link to="/">
                 <button
                   className="w-24 h-8 text-white font-semibold rounded-sm hover:shadow-lg"
                   style={{ backgroundColor: "#0D6EFD" }}

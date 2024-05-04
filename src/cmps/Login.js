@@ -15,7 +15,7 @@ export default function Login() {
         localStorage.setItem("u", JSON.stringify({ token: token, userId: id }));
         Swal.fire("You logged in successfuly", "", "success");
         setTimeout(() => {
-          navigate("/");
+          navigate("/home");
         }, 1000);
       })
       .catch((err) => {

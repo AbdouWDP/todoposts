@@ -9,6 +9,8 @@ export default function Home() {
   const [total, setTotal] = useState(0);
   const loader = useRef(null);
 
+  console.log("Home");
+
   const userAuth = JSON.parse(localStorage.getItem("u"));
 
   window.addEventListener("scroll", (e) => {

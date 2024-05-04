@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function TodoPost(props) {
+function TodoPost(props) {
   const { post } = props;
   const [user, setUser] = useState({});
   function fetchUser(id) {
@@ -69,3 +69,5 @@ export default function TodoPost(props) {
     </>
   );
 }
+
+export default TodoPost;

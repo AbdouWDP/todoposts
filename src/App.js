@@ -6,12 +6,13 @@ import Home from "./cmps/Home";
 import Profile from "./cmps/Profile";
 
 function App() {
+  localStorage.setItem("u", JSON.stringify({}));
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="login" element={<Login />} />
+        <Route path="home" element={<Home />} />
+        <Route path="" element={<Login />} />
         <Route path="profile/:userId" element={<Profile />} />
       </Routes>
     </>
