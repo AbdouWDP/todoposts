@@ -9,7 +9,7 @@ export default function Login() {
 
   const userAuth = JSON.parse(localStorage.getItem("u"));
 
-  if (userAuth && userAuth.token.length >= 1) {
+  if (Object.keys(userAuth).length > 0 && userAuth.token.length >= 1) {
     navigate("/home");
   }
 
