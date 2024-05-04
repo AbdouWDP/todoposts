@@ -1,17 +1,20 @@
 import axios from "axios";
 import TodoPost from "./TodoPost";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [limit, setLimit] = useState(10);
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
   const loader = useRef(null);
 
-  console.log("Home");
-
   const userAuth = JSON.parse(localStorage.getItem("u"));
+
+  if (userAuth && userAuth.token.length < 1) {
+    navigate("/");
+  }
 
   window.addEventListener("scroll", (e) => {
     const endOfPage = Math.ceil(window.pageYOffset + window.innerHeight);
@@ -46,6 +49,7 @@ export default function Home() {
   }, [limit]);
   return (
     <>
+      (
       <main className="w-11/12 m-auto py-4">
         <div className="todo-posts w-1/2 m-auto flex flex-col items-center max-lg:w-3/5 max-md:w-4/5">
           {posts.map((post) => {
@@ -61,6 +65,7 @@ export default function Home() {
           <span className="loader" ref={loader}></span>
         </div>
       </main>
+      )
     </>
   );
 }

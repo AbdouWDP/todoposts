@@ -6,6 +6,13 @@ import Swal from "sweetalert2";
 export default function Login() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
+  const userAuth = JSON.parse(localStorage.getItem("u"));
+
+  if (userAuth && userAuth.token.length >= 1) {
+    navigate("/home");
+  }
+
   function login(params) {
     axios
       .post("https://dummyjson.com/auth/login", params)
